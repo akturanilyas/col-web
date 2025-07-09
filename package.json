@@ -3,25 +3,64 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
+    "dev": "NODE_ENV=development next dev --turbopack",
+    "build": "NODE_ENV=test next build",
     "start": "next start",
-    "lint": "next lint"
+    "tsc": "tsc",
+    "lint": "next lint",
+    "tw": "tsc --watch",
+    "svgr": "npx @svgr/cli ./src/assets/icons -d src/components/icons --typescript --icon --svg-props \"width=24,height=24\" --no-prettier && npm run fix:all",
+    "format": "prettier --write \"./src/**/*.{ts,tsx,js,jsx,json}\"",
+    "lint:fix": "cd \"./src/\" && eslint \"**/*.{ts,tsx}\" --fix && cd ..",
+    "fix:all": "npm run format && npm run lint:fix",
+    "precommit": "lint-staged && npm run tsc",
+    "prepare": "husky"
   },
   "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.3.4"
+    "@svgr/cli": "8.1.0",
+    "@svgr/webpack": "8.1.0",
+    "class-variance-authority": "0.7.1",
+    "i18next": "^25.3.2",
+    "motion": "^12.23.0",
+    "next": "15.3.4",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-i18next": "15.6.0"
   },
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
-    "eslint": "^9",
+    "@eslint/compat": "1.2.9",
+    "@eslint/eslintrc": "3.3.1",
+    "@tailwindcss/postcss": "4.1.11",
+    "@types/node": "20.19.2",
+    "@types/react": "19.1.8",
+    "@types/react-dom": "19.1.6",
+    "clsx": "2.1.1",
+    "eslint": "9.30.0",
     "eslint-config-next": "15.3.4",
-    "@eslint/eslintrc": "^3"
+    "eslint-plugin-import": "2.32.0",
+    "eslint-plugin-prettier": "5.5.1",
+    "eslint-plugin-react": "7.37.5",
+    "eslint-plugin-react-hooks": "5.2.0",
+    "eslint-plugin-unused-imports": "4.1.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
+    "prettier": "3.6.2",
+    "prettier-plugin-tailwindcss": "0.6.13",
+    "tailwind-merge": "3.3.1",
+    "tailwindcss": "4.1.11",
+    "typescript": "5.8.3"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{json,css,md}": [
+      "prettier --write"
+    ],
+    "src/**/*.{ts,tsx,json}": [
+      "node_modules/.bin/prettier --write",
+      "eslint --fix"
+    ]
   }
 }
