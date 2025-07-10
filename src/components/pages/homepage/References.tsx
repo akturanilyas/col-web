@@ -1,0 +1,90 @@
+'use client';
+
+import { FC, useEffect, useState } from 'react';
+
+import { Carousel, CarouselApi, CarouselContent, CarouselItem } from '@/components/base/carousel/Carousel';
+import BaseText from '@/components/base/text/BaseText';
+import BaseView from '@/components/base/view/BaseView';
+
+export const REFERENCE_ITEMS: Array<ReferenceItemType> = [
+  {
+    image: '/references/ayse.png',
+    name: 'Ayşe Erdem',
+    title: 'Kurucu, Albatros Sigorta – İzmir',
+    text: '“Compi’ye geçtikten sonra teklif almak ve karşılaştırmak 10 dakikadan 1 dakikaya indi. Artık müşteriye daha hızlı dönebiliyoruz ve bu fark yaratıyor. Ayrıca kullanıcı arayüzü çok sade, eğitim neredeyse gerekmedi.”',
+  },
+  {
+    image: '/references/baris.png',
+    name: 'Barış Yıldırım',
+    title: 'Şube Müdürü, Mavi Poliçe Sigorta',
+    text: '“Eskiden farklı sigorta şirketleri için ayrı paneller kullanıyorduk. Compi ile hepsi tek ekranda toplandı. Şube yöneticisi olarak hem personel takibi hem teklif kontrolü çok kolaylaştı.”',
+  },
+  {
+    image: '/references/burak.png',
+    name: 'Burak Şen',
+    title: 'Broker Yöneticisi, Nova Brokerlık',
+    text: '“Compi, broker yapımız için beklediğimiz esnekliği sağladı. Kurumsal teklif modülü ile büyük müşterilerimizden gelen talepleri hızlıca yönetiyoruz. Raporlama ve veri aktarım fonksiyonları da büyük kolaylık sağladı.”',
+  },
+];
+
+export const References: FC = () => {
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap() + 1);
+
+    api.on('select', () => {
+      setCurrent(api.selectedScrollSnap() + 1);
+    });
+  }, [api]);
+
+  return (
+    <BaseView className={'w-full'}>
+      <BaseView className={'self-center'}>
+        <BaseText color={'primary'} className={'mb-7 text-[34px] font-bold'} text={'Referanslar'} />
+      </BaseView>
+      <Carousel className={'w-full'}>
+        <CarouselContent className={'-ml-4'}>
+          {REFERENCE_ITEMS.map((item, index) => (
+            <CarouselItem key={index} className={'pl-4 md:basis-1/2 lg:basis-1/3'}>
+              <ReferenceItem item={item} />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
+    </BaseView>
+  );
+};
+export type ReferenceItemType = {
+  image: string;
+  name: string;
+  title: string;
+  text: string;
+};
+
+export type ReferenceItemProps = {
+  item: ReferenceItemType;
+};
+export const ReferenceItem: FC<ReferenceItemProps> = (props) => {
+  const { item } = props;
+
+  return (
+    <BaseView className={'rounded-xl bg-white'}>
+      <BaseView className={'mb-5'}>
+        <img className={'size-20 rounded-full'} src={item.image} alt={item.name} />
+      </BaseView>
+      <BaseView className={'mb-4 gap-2'}>
+        <BaseText color={'primary'} className={'text-xl font-semibold'} text={item.name} />
+        <BaseText color={'secondary'} className={'text-[17px]'} text={item.title} />
+      </BaseView>
+      <p className={'text-secondary font-[17px]'}>{item.text}</p>
+    </BaseView>
+  );
+};

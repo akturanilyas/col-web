@@ -13,7 +13,7 @@ const BaseText: FC<TextProps> = (props) => {
     <span className={cn(textStyle({ className, size, color }))}>
       {Icon}
       {text}
-      <Trans className={className} i18nKey={text} values={options}>
+      <Trans className={cn('leading-none', className)} i18nKey={text} values={options}>
         {children}
       </Trans>
     </span>

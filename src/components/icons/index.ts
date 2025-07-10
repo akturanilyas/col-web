@@ -1,6 +1,10 @@
 export { default as Coordinate } from './Coordinate';
+export { default as FacebookBlack } from './FacebookBlack';
 export { default as Graph } from './Graph';
 export { default as Hierarchy } from './Hierarchy';
+export { default as InstagramBlack } from './InstagramBlack';
+export { default as LnBlack } from './LnBlack';
 export { default as Podcast } from './Podcast';
 export { default as Tasks } from './Tasks';
 export { default as ToolBox } from './ToolBox';
+export { default as XBlack } from './XBlack';

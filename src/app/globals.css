@@ -1,15 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap') layer(base);
+
 @import "tailwindcss";
+@import 'tw-animate-css';
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
   scroll-behavior: smooth;
+
+  button:not([disabled]),
+  [role="button"]:not([disabled]) {
+    cursor: pointer;
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: #008cff;
+  --color-secondary: #8A8A8E;
+  --text-small: 13px;
+  --text-ml: 17px;
 }
 
 body {
@@ -17,7 +28,6 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
-
 
 @layer utilities {
   @keyframes marquee {
@@ -29,7 +39,29 @@ body {
     }
   }
 
+  @keyframes bounce2 {
+    0%, 100% {
+      transform: translateY(-25%);
+      animation-timing-function: linear(0, 0.5, 1);
+    }
+    50% {
+      transform: none;
+    }
+  }
+
   .animate-marquee {
     animation: marquee 45s linear infinite;
+  }
+
+  .animate-bounce-2 {
+    animation: bounce2 5s infinite;
+  }
+
+  .bg-radial-gradient {
+    background: radial-gradient(50% 50% at 50% 50%, rgba(43, 160, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%);
+  }
+
+  .bg-radial-white {
+    background: radial-gradient(50% 50% at 50% 50%, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0.5) 100%);
   }
 }
