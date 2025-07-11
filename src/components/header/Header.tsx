@@ -8,7 +8,7 @@ import { MobileNav } from '@/components/header/mobile-nav';
 import { NavItems } from '@/constants/common.constant';
 
 export const Header = () => (
-    <header className={'flex w-full flex-row items-center justify-between py-2 p-4 md:py-4 md:px-10 sticky top-0 bg-white/90 z-50'}>
+    <header className={'flex w-full flex-row items-center justify-between py-2 p-4 md:py-4 md:px-10 top-0 bg-transparent z-50'}>
       <BaseView className={'flex-1 md:hidden'}>
         <MobileNav items={NavItems} />
       </BaseView>
@@ -18,7 +18,7 @@ export const Header = () => (
       <BaseView className={'hidden flex-1 md:flex'}>
         <nav className={'flex flex-row justify-center gap-6 opacity-60'}>
           {NavItems.map((item) => (
-            <Link key={item.href} href={item.href} className={'text-sm text-secondary'}>
+            <Link key={item.href} href={item.href} className={'text-sm text-secondary hover:text-primary'}>
               <BaseText text={item.label} alt={item.label} />
             </Link>
           ))}

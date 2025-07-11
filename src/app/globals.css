@@ -138,6 +138,10 @@
     }
   }
 
+  .animate-bounce-2 {
+    animation: bounce2 5s infinite;
+  }
+
   .animate-marquee {
     animation: marquee 45s linear infinite;
   }
@@ -161,7 +165,7 @@
 }
 
 .border-gradient {
-  border: 4px solid #0000;
+  border: 1px solid #0000;
   border-radius: 100%;
   background: conic-gradient(#fff 0 0) padding-box, linear-gradient(55deg, #C0E3FF, #C0E3FF, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #C0E3FF, #C0E3FF) border-box;
 }

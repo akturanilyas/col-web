@@ -8,7 +8,7 @@ import { GradientCircle } from '@/components/gradient-circle/GradientCircle';
 import { cn } from '@/lib/utils';
 
 export const Hero = () => (
-  <BaseView className={'relative z-10 mt-10 max-w-screen items-center self-center'}>
+  <BaseView className={'relative mt-10 max-w-screen items-center self-center'}>
     <BaseText
       className={'mb-7 max-w-sm text-center text-3xl font-bold md:max-w-md md:text-4xl lg:mb-12'}
       color={'primary'}
