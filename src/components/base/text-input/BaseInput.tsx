@@ -45,7 +45,7 @@ export const BaseInput: FC<BaseInputProps> = (props) => {
     'absolute left-5 top-1/2 -translate-y-1/2 text-muted-foreground transition-all pointer-events-none text-ml z-10',
     'peer-focus:text-small peer-focus:top-4',
     'peer-[:not(:placeholder-shown)]:text-small peer-[:not(:placeholder-shown)]:top-4',
-    'text-secondary opacity-60',
+    'text-secondary',
     {
       'text-error opacity-100': isError,
     },
@@ -94,7 +94,7 @@ export const BaseInput: FC<BaseInputProps> = (props) => {
   };
 
   const inputWrapperClasses = cn('relative flex-1', {
-    'h-[50px]': label,
+    'h-14 md:h-[50px]': label,
     'h-10': !label,
   });
 

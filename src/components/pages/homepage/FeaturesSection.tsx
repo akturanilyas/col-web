@@ -3,6 +3,7 @@ import { FC, ReactNode } from 'react';
 
 import BaseText from '@/components/base/text/BaseText';
 import BaseView from '@/components/base/view/BaseView';
+import { GradientCircle } from '@/components/gradient-circle/GradientCircle';
 import { Coordinate, Graph, Hierarchy, Podcast, Tasks, ToolBox } from '@/components/icons';
 import { Section } from '@/components/section/Section';
 import { cn } from '@/lib/utils';
@@ -13,26 +14,7 @@ const items: Array<FeatureItem> = [
     header: { icon: <Coordinate width={28} height={28} />, text: 'Satış' },
     title: 'Sigorta tekliflerini anında al, karşılaştır ve satışa dönüştür',
     description: 'Sigorta şirketlerinden anında teklif al. Zaman kaybetmeden satışı birkaç tıkla tamamla.',
-  },
-  {
-    imgUrl: '/features/customer.png',
-    header: { icon: <Podcast width={28} height={28} />, text: 'Müşteriler' },
-    title: 'Tüm müşteri bilgilerini merkezi bir sistemde yönet ve güncel tut',
-    description:
-      'Tüm müşteri bilgilerine kolayca ulaş. Müşteri kayıtlarını tut, bilgileri güncelle, ilişkilerini güçlendir.',
-  },
-  {
-    imgUrl: '/features/corporate-offer.png',
-    header: { icon: <ToolBox width={28} height={28} />, text: 'Kurumsal Teklif' },
-    title: 'Kurumsal müşterilerin için hızlıca toplu ve özel teklifler hazırla',
-    description:
-      'Kurumsal müşterilerin için teklif almayı kolaylaştır. Bireyselden farklılaşan ihtiyaçlara, özel toplu teklif talepleri oluştur.',
-  },
-  {
-    imgUrl: '/features/demands.png',
-    header: { icon: <Tasks width={28} height={28} />, text: 'Satış verileri' },
-    title: 'Müşteri taleplerini kategorilere ayır, düzenli ve kolay yönet',
-    description: 'Satış ve teklif verilerine anında ulaş. Performansını analiz et, kararlarını veriye göre al.',
+    circleClasses: 'top-0 right-0 w-3xl translate-x-1/2 blur-3xl',
   },
   {
     imgUrl: '/features/reports.png',
@@ -40,6 +22,30 @@ const items: Array<FeatureItem> = [
     title: 'Şubeler aç, takımı düzenle ve tüm işleyişi kolayca yönet',
     description:
       'Yeni şubeler oluştur, çalışanları yetkilendir. Tüm şubelerini tek ekrandan yönet, yetkileri kolayca belirle.',
+    circleClasses: 'top-0 left-0 w-3xl -translate-y-1/3 -translate-x-1/2 blur-3xl',
+  },
+  {
+    imgUrl: '/features/customer.png',
+    header: { icon: <Podcast width={28} height={28} />, text: 'Müşteriler' },
+    title: 'Tüm müşteri bilgilerini merkezi bir sistemde yönet ve güncel tut',
+    description:
+      'Tüm müşteri bilgilerine kolayca ulaş. Müşteri kayıtlarını tut, bilgileri güncelle, ilişkilerini güçlendir.',
+    circleClasses: 'top-0 right-0 w-3xl translate-x-1/2 blur-3xl -translate-y-1/3',
+  },
+  {
+    imgUrl: '/features/corporate-offer.png',
+    header: { icon: <ToolBox width={28} height={28} />, text: 'Kurumsal Teklif' },
+    title: 'Kurumsal müşterilerin için hızlıca toplu ve özel teklifler hazırla',
+    description:
+      'Kurumsal müşterilerin için teklif almayı kolaylaştır. Bireyselden farklılaşan ihtiyaçlara, özel toplu teklif talepleri oluştur.',
+    circleClasses: 'top-0 left-0 w-3xl -translate-x-1/2 -translate-y-1/3 blur-3xl',
+  },
+  {
+    imgUrl: '/features/demands.png',
+    header: { icon: <Tasks width={28} height={28} />, text: 'Satış verileri' },
+    title: 'Müşteri taleplerini kategorilere ayır, düzenli ve kolay yönet',
+    description: 'Satış ve teklif verilerine anında ulaş. Performansını analiz et, kararlarını veriye göre al.',
+    circleClasses: 'top-0 right-0 w-3xl translate-x-1/2 -translate-y-1/3 blur-3xl',
   },
   {
     imgUrl: '/features/branch.png',
@@ -47,6 +53,7 @@ const items: Array<FeatureItem> = [
     title: 'Şubeler aç, takımı düzenle ve tüm işleyişi kolayca yönet',
     description:
       'Yeni şubeler oluştur, çalışanları yetkilendir. Tüm şubelerini tek ekrandan yönet, yetkileri kolayca belirle.',
+    circleClasses: 'top-0 left-0 w-3xl -translate-x-1/2 -translate-y-1/4 blur-3xl',
   },
 ];
 
@@ -65,6 +72,7 @@ export type FeatureItem = {
   header: { icon: ReactNode; text: string };
   title: string;
   description: string;
+  circleClasses: string;
 };
 
 export type FeatureItemProps = {
@@ -78,25 +86,27 @@ export const FeaturesItem: FC<FeatureItemProps> = (props) => {
   const isRtl = index % 2 === 1;
 
   return (
-    <BaseView className={cn('items-center gap-4 lg:gap-16 lg:flex-row', { 'lg:flex-row-reverse ': isRtl })}>
+    <BaseView className={cn('relative items-center gap-4 lg:flex-row lg:gap-16', { 'lg:flex-row-reverse ': isRtl })}>
       <BaseView className={'gap-2 lg:w-1/3'}>
         <BaseView className={'flex-row gap-2'}>
           {item.header.icon}
-          <BaseText color={'primary'} className={'text-[17px] font-semibold'} text={item.header.text} />
+          <BaseText color={'primary'} className={'text-[17px] font-semibold line-normal'} text={item.header.text} />
         </BaseView>
         <BaseView className={'gap-3'}>
           <BaseText
             text={item.title}
-            className={'text-[22px] font-bold lg:text-[34px] lg:leading-11'}
+            className={'text-[22px] font-bold lg:text-[34px] lg:leading-11 line-normal'}
             color={'primary'}
           />
-          <BaseText className={'text-[22px] font-normal'} color={'secondary'} text={item.description} />
+          <BaseText className={'text-[22px] font-normal line-normal'} color={'secondary'} text={item.description} />
         </BaseView>
       </BaseView>
 
       <BaseView className={'lg:w-2/3'}>
-        <Image alt={item.header.text} src={item.imgUrl} className={'w-full flex-1'} width={500} height={500} />
+        <Image alt={item.header.text} src={item.imgUrl} className={'w-full flex-1 object-contain lg:h-[520px]'} width={500} height={500} />
       </BaseView>
+
+      <GradientCircle className={item.circleClasses}/>
     </BaseView>
   );
 };

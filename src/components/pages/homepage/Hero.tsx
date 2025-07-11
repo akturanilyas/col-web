@@ -17,8 +17,8 @@ export const Hero = () => (
         className={'w-full'}
         label={'Eposta adresin'}
         suffix={
-          <BaseView className={'mr-2'}>
-            <Button className={'text-[13px] font-semibold'}>Kayıt ol</Button>
+          <BaseView className={'mr-1.5 lg:mr-2'}>
+            <Button className={'md:text-[13px] h-[46px] md:h-auto font-semibold'}>Kayıt ol</Button>
           </BaseView>
         }
       />

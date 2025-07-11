@@ -1,10 +1,11 @@
 'use client';
 
-import { FC, useEffect, useState } from 'react';
+import { FC, useState } from 'react';
 
 import { Carousel, CarouselApi, CarouselContent, CarouselItem } from '@/components/base/carousel/Carousel';
 import BaseText from '@/components/base/text/BaseText';
 import BaseView from '@/components/base/view/BaseView';
+import { GradientCircle } from '@/components/gradient-circle/GradientCircle';
 
 export const REFERENCE_ITEMS: Array<ReferenceItemType> = [
   {
@@ -29,39 +30,25 @@ export const REFERENCE_ITEMS: Array<ReferenceItemType> = [
 
 export const References: FC = () => {
   const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (!api) {
-      return;
-    }
-
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap() + 1);
-
-    api.on('select', () => {
-      setCurrent(api.selectedScrollSnap() + 1);
-    });
-  }, [api]);
 
   const currentSlide = (api?.selectedScrollSnap() || 0);
 
   return (
     <BaseView className={'relative w-full gap-5 lg:gap-7'}>
+      <GradientCircle className={'top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-5xl'}/>
       <BaseView className={'self-center'}>
         <BaseText color={'primary'} className={'text-[34px] font-bold'} text={'Referanslar'} />
       </BaseView>
       <Carousel className={'w-full'} setApi={setApi}>
         <CarouselContent className={'-ml-4'}>
           {REFERENCE_ITEMS.map((item, index) => (
-            <CarouselItem key={index} className={'pl-4 md:basis-1/2 lg:basis-1/3'}>
+            <CarouselItem key={index} className={'pl-4 lg:basis-1/3'}>
               <ReferenceItem item={item} />
             </CarouselItem>
           ))}
         </CarouselContent>
       </Carousel>
-      <BaseView className={'flex-row items-center justify-center gap-2'}>
+      <BaseView className={'flex-row items-center justify-center gap-2 md:hidden'}>
         {REFERENCE_ITEMS.map((_, index) => (
           <BaseView
             key={index}
@@ -89,7 +76,7 @@ export const ReferenceItem: FC<ReferenceItemProps> = (props) => {
   const { item } = props;
 
   return (
-    <BaseView className={'rounded-xl bg-white p-4'}>
+    <BaseView className={'rounded-xl bg-white/50 p-4'}>
       <BaseView className={'mb-5'}>
         <img className={'size-20 rounded-full'} src={item.image} alt={item.name} />
       </BaseView>
