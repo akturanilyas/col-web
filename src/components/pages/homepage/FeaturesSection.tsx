@@ -18,13 +18,15 @@ const items: Array<FeatureItem> = [
     imgUrl: '/features/customer.png',
     header: { icon: <Podcast width={28} height={28} />, text: 'Müşteriler' },
     title: 'Tüm müşteri bilgilerini merkezi bir sistemde yönet ve güncel tut',
-    description: 'Tüm müşteri bilgilerine kolayca ulaş. Müşteri kayıtlarını tut, bilgileri güncelle, ilişkilerini güçlendir.',
+    description:
+      'Tüm müşteri bilgilerine kolayca ulaş. Müşteri kayıtlarını tut, bilgileri güncelle, ilişkilerini güçlendir.',
   },
   {
     imgUrl: '/features/corporate-offer.png',
     header: { icon: <ToolBox width={28} height={28} />, text: 'Kurumsal Teklif' },
     title: 'Kurumsal müşterilerin için hızlıca toplu ve özel teklifler hazırla',
-    description: 'Kurumsal müşterilerin için teklif almayı kolaylaştır. Bireyselden farklılaşan ihtiyaçlara, özel toplu teklif talepleri oluştur.',
+    description:
+      'Kurumsal müşterilerin için teklif almayı kolaylaştır. Bireyselden farklılaşan ihtiyaçlara, özel toplu teklif talepleri oluştur.',
   },
   {
     imgUrl: '/features/demands.png',
@@ -36,19 +38,21 @@ const items: Array<FeatureItem> = [
     imgUrl: '/features/reports.png',
     header: { icon: <Graph width={28} height={28} />, text: 'Satış' },
     title: 'Şubeler aç, takımı düzenle ve tüm işleyişi kolayca yönet',
-    description: 'Yeni şubeler oluştur, çalışanları yetkilendir. Tüm şubelerini tek ekrandan yönet, yetkileri kolayca belirle.',
+    description:
+      'Yeni şubeler oluştur, çalışanları yetkilendir. Tüm şubelerini tek ekrandan yönet, yetkileri kolayca belirle.',
   },
   {
     imgUrl: '/features/branch.png',
     header: { icon: <Hierarchy width={28} height={28} />, text: 'Satış' },
     title: 'Şubeler aç, takımı düzenle ve tüm işleyişi kolayca yönet',
-    description: 'Yeni şubeler oluştur, çalışanları yetkilendir. Tüm şubelerini tek ekrandan yönet, yetkileri kolayca belirle.',
+    description:
+      'Yeni şubeler oluştur, çalışanları yetkilendir. Tüm şubelerini tek ekrandan yönet, yetkileri kolayca belirle.',
   },
 ];
 
 export const FeaturesSection = () => (
   <Section>
-    <BaseView className={'gap-20'}>
+    <BaseView className={'gap-12 lg:gap-20'}>
       {items.map((item, index) => (
         <FeaturesItem item={item} key={index} index={index} />
       ))}
@@ -74,23 +78,25 @@ export const FeaturesItem: FC<FeatureItemProps> = (props) => {
   const isRtl = index % 2 === 1;
 
   return (
-    <Section>
-      <BaseView className={cn('flex-row items-center gap-16', { 'flex-row-reverse': isRtl })}>
-        <BaseView className={'w-1/3 gap-2'}>
-          <BaseView className={'flex-row gap-2'}>
-            {item.header.icon}
-            <BaseText color={'primary'} className={'font-semibold'} text={item.header.text} />
-          </BaseView>
-          <BaseView className={'gap-3'}>
-            <BaseText text={item.title} className={'text-[34px] leading-11 font-bold'} color={'primary'} />
-            <BaseText className={'text-[22px] font-normal'} color={'secondary'} text={item.description} />
-          </BaseView>
+    <BaseView className={cn('items-center gap-4 lg:gap-16 lg:flex-row', { 'lg:flex-row-reverse ': isRtl })}>
+      <BaseView className={'gap-2 lg:w-1/3'}>
+        <BaseView className={'flex-row gap-2'}>
+          {item.header.icon}
+          <BaseText color={'primary'} className={'text-[17px] font-semibold'} text={item.header.text} />
         </BaseView>
-
-        <BaseView className={'w-2/3'}>
-          <Image alt={item.header.text} src={item.imgUrl} className={'flex-1 w-full'} width={500} height={500}/>
+        <BaseView className={'gap-3'}>
+          <BaseText
+            text={item.title}
+            className={'text-[22px] font-bold lg:text-[34px] lg:leading-11'}
+            color={'primary'}
+          />
+          <BaseText className={'text-[22px] font-normal'} color={'secondary'} text={item.description} />
         </BaseView>
       </BaseView>
-    </Section>
+
+      <BaseView className={'lg:w-2/3'}>
+        <Image alt={item.header.text} src={item.imgUrl} className={'w-full flex-1'} width={500} height={500} />
+      </BaseView>
+    </BaseView>
   );
 };

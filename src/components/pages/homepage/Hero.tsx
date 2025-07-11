@@ -2,17 +2,19 @@ import { Button } from '@/components/base/button/Button';
 import BaseText from '@/components/base/text/BaseText';
 import BaseInput from '@/components/base/text-input/BaseInput';
 import BaseView from '@/components/base/view/BaseView';
+import { HomepageMarquee } from '@/components/pages/homepage/Marquee';
 
 export const Hero = () => (
-  <BaseView className={'items-center self-center z-10 mb-20'}>
+  <BaseView className={'z-10 max-w-screen items-center self-center'}>
     <BaseText
-      className={'mb-12 max-w-[450px] text-center text-4xl font-bold'}
+      className={'mb-7 text-center text-3xl font-bold md:text-4xl lg:mb-12 max-w-sm md:max-w-md'}
       color={'primary'}
       text={'Sigortacılık daha kolay, daha hızlı, daha hafif'}
     />
 
-    <BaseView className={'mb-8'}>
+    <BaseView className={'mb-8 w-full max-w-sm px-4'}>
       <BaseInput
+        className={'w-full'}
         label={'Eposta adresin'}
         suffix={
           <BaseView className={'mr-2'}>
@@ -22,7 +24,9 @@ export const Hero = () => (
       />
     </BaseView>
 
-    <img src={'/screens/mobile-web.png'} alt={'mobile-and-web'} className={'max-w-[720px]'} />
+    <BaseView className={'px-4 items-center'}>
+      <img src={'/screens/mobile-web.png'} alt={'mobile-and-web'} className={'w-11/12 md:max-w-2/3 lg:max-w-[720px] mb-10 lg:mb-20'} />
+    </BaseView>
+    <HomepageMarquee />
   </BaseView>
 );
-

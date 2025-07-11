@@ -9,5 +9,5 @@ export const Button: FC<ButtonProps> = (props) => {
 
   const classes = cn('text-white bg-primary py-2.5 px-5 rounded-md font-semibold', className);
 
-  return <button className={classes}>{children}</button>;
+  return <button className={classes} {...rest}>{children}</button>;
 };

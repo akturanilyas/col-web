@@ -6,17 +6,17 @@ import { Providers } from '@/enums/providers.enum';
 
 export const HomepageMarquee = () => {
   const providerImages = Object.values(Providers).map((key) => (
-    <img className={'mx-4 h-8'} key={key} src={`/providers/black/${key}.png`} alt={key} />
+    <img className={'mx-4 h-5 md:h-8'} key={key} src={`/providers/black/${key}.png`} alt={key} />
   ));
 
   return (
-    <BaseView className={'mb-24 items-center gap-9'}>
+    <BaseView className={'items-center gap-9'}>
       <BaseText
         color={'secondary'}
         className={'text-base'}
         text={'En prestijli sigorta şirketleri Compi’ye güveniyor'}
       />
-      <Marquee className={'gap-8'} pauseOnHover>
+      <Marquee className={'opacity-60'} pauseOnHover>
         {providerImages}
       </Marquee>
     </BaseView>

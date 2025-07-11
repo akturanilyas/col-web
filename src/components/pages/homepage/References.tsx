@@ -45,12 +45,14 @@ export const References: FC = () => {
     });
   }, [api]);
 
+  const currentSlide = (api?.selectedScrollSnap() || 0);
+
   return (
-    <BaseView className={'w-full'}>
+    <BaseView className={'relative w-full gap-5 lg:gap-7'}>
       <BaseView className={'self-center'}>
-        <BaseText color={'primary'} className={'mb-7 text-[34px] font-bold'} text={'Referanslar'} />
+        <BaseText color={'primary'} className={'text-[34px] font-bold'} text={'Referanslar'} />
       </BaseView>
-      <Carousel className={'w-full'}>
+      <Carousel className={'w-full'} setApi={setApi}>
         <CarouselContent className={'-ml-4'}>
           {REFERENCE_ITEMS.map((item, index) => (
             <CarouselItem key={index} className={'pl-4 md:basis-1/2 lg:basis-1/3'}>
@@ -59,6 +61,17 @@ export const References: FC = () => {
           ))}
         </CarouselContent>
       </Carousel>
+      <BaseView className={'flex-row items-center justify-center gap-2'}>
+        {REFERENCE_ITEMS.map((_, index) => (
+          <BaseView
+            key={index}
+            className={`rounded-full transition-all duration-300 ${
+              index === currentSlide ? 'h-3 w-8 bg-primary' : 'h-3 w-3 bg-primary hover:bg-white/70'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </BaseView>
     </BaseView>
   );
 };
@@ -76,7 +89,7 @@ export const ReferenceItem: FC<ReferenceItemProps> = (props) => {
   const { item } = props;
 
   return (
-    <BaseView className={'rounded-xl bg-white'}>
+    <BaseView className={'rounded-xl bg-white p-4'}>
       <BaseView className={'mb-5'}>
         <img className={'size-20 rounded-full'} src={item.image} alt={item.name} />
       </BaseView>
