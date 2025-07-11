@@ -22,7 +22,7 @@ export const Hero = () => (
       />
     </BaseView>
 
-    <img src={'/screens/mobile-web.png'} alt={'mobile-and-web'} className={'max-w-3xl'} />
+    <img src={'/screens/mobile-web.png'} alt={'mobile-and-web'} className={'max-w-[720px]'} />
   </BaseView>
 );
 

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "NODE_ENV=development next dev --turbopack",
+    "dev": "NODE_ENV=development next dev --turbopack --port=3001",
     "build": "NODE_ENV=test next build",
     "start": "next start",
     "tsc": "tsc",

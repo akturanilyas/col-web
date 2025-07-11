@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <BaseView className={'mt-8 items-center'}>
       <BaseView className={'absolute -top-20 items-center justify-center'}>
-        <BaseView className={'bg-red-500 z-40'}>
+        <BaseView className={'z-40'}>
           <Image className={'absolute animate-bounce-2 top-1/2 translate-x-1/2 -translate-y-1/2 right-0 z-20'} src={'/providers/regular/ak.png'} alt={'ak'} width={120} height={120} />
           <Image className={'absolute animate-bounce-2 right-20 top-20 translate-y-44 -translate-x-full'} src={'/providers/regular/anadolu.png'} alt={'anadolu'} width={85} height={85} />
           <Image className={'absolute animate-bounce-2 left-0 -translate-x-1/3 top-1/4'} src={'/providers/regular/eureko.png'} alt={'eureko'} width={130} height={130} />
@@ -24,14 +24,14 @@ export default function Home() {
           <Image className={'absolute animate-bounce-2 right-0 top-1/3 -translate-y-1/2'} src={'/references/baris.png'} alt={'baris'} width={92} height={92} />
           <Image className={'absolute animate-bounce-2 left-0 top-1/2 -translate-1/2'} src={'/references/burak.png'} alt={'burak'} width={107} height={107} />
         </BaseView>
-        <BaseView className={cn('-z-10 relative aspect-square w-6xl items-center justify-center rounded-full border border-[#B8DFFF] opacity-60')}>
-          <BaseView className={'w-1/2 aspect-square absolute right-0 top-40 rounded-full bg-radial-gradient'}/>
-          <BaseView className={'w-1/2 aspect-square absolute left-0 bottom-0 rounded-full bg-radial-gradient'}/>
+        <BaseView className={cn('-z-10 relative aspect-square w-6xl items-center justify-center rounded-full border-gradient opacity-60')}>
+          <BaseView>
+            <BaseView className={'w-2/3 aspect-square absolute right-0 top-40 rounded-full bg-radial-gradient'}/>
+            <BaseView className={'w-2/3 aspect-square absolute left-0 bottom-0 -translate-x-1/3 rounded-full bg-radial-gradient'}/>
+          </BaseView>
 
-          <BaseView className={'w-1/2 aspect-square absolute left-0 top-0 blur-lg rounded-full'}/>
-
-          <BaseView className={cn('-z-10 aspect-square w-3xl items-center justify-center rounded-full border border-[#B8DFFF]')}>
-            <BaseView className={cn('-z-10 aspect-square w-xl items-center justify-center rounded-full border border-[#B8DFFF]')} />
+          <BaseView className={cn('-z-10 aspect-square w-3xl items-center justify-center rounded-full border-gradient')}>
+            <BaseView className={cn('-z-10 aspect-square w-xl items-center justify-center rounded-full border-gradient')} />
           </BaseView>
         </BaseView>
       </BaseView>

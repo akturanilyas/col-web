@@ -65,3 +65,10 @@ body {
     background: radial-gradient(50% 50% at 50% 50%, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0.5) 100%);
   }
 }
+
+.border-gradient {
+  border: 2px solid #0000;
+  border-radius: 100%;
+  background: conic-gradient(#fff 0 0) padding-box, linear-gradient(74deg,#C0E3FF, #C0E3FF,#ffffff,#ffffff, #ffffff, #ffffff, #ffffff,#C0E3FF,#C0E3FF) border-box;
+}
+

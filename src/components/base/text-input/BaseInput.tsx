@@ -94,7 +94,7 @@ export const BaseInput: FC<BaseInputProps> = (props) => {
   };
 
   const inputWrapperClasses = cn('relative flex-1', {
-    'h-14': label,
+    'h-[50px]': label,
     'h-10': !label,
   });
 
