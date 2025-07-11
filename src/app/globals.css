@@ -164,7 +164,7 @@
 .border-gradient {
   border: 2px solid #0000;
   border-radius: 100%;
-  background: conic-gradient(#fff 0 0) padding-box, linear-gradient(55deg,#C0E3FF, #C0E3FF,#ffffff,#ffffff, #ffffff, #ffffff, #ffffff,#C0E3FF,#C0E3FF) border-box;
+  background: conic-gradient(#fff 0 0) padding-box, linear-gradient(55deg, #C0E3FF, #C0E3FF, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #C0E3FF, #C0E3FF) border-box;
 }
 
 .dark {
@@ -205,6 +205,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -214,3 +215,7 @@
   line-height: normal;
 }
 
+
+section {
+  scroll-margin-top: 60px; /* Header yüksekliği */
+}

@@ -8,7 +8,7 @@ import { References } from '@/components/pages/homepage/References';
 
 export default function Home() {
   return (
-    <BaseView className={'relative mt-8 items-center gap-16 overflow-hidden'}>
+    <BaseView className={'relative pt-8 items-center gap-10 md:gap-16 overflow-hidden'}>
       <BaseView className={'relative items-center overflow-auto md:static'}>
         <Hero />
       </BaseView>
@@ -19,16 +19,16 @@ export default function Home() {
         <References />
       </BaseView>
 
-      <BaseView className={'relative'}>
-        <BaseView className={'mb-28 max-w-7xl'}>
-          <GradientCircle className={'top-1/2 -left-60 w-3xl -translate-x-full -translate-y-1/2'} />
+      <BaseView className={'relative items-center'}>
+        <BaseView className={'w-full max-w-7xl'}>
+          <GradientCircle className={'bottom-0 left-0 -translate-x-2/3'} />
           <AboutUsSection />
         </BaseView>
       </BaseView>
 
-      <BaseView className={'relative'}>
+      <BaseView className={'relative items-center'}>
         <BaseView className={'mb-20 max-w-7xl px-20'}>
-          <GradientCircle className={'w-3xl -right-60 top-1/2 translate-x-full -translate-y-1/2'}/>
+          <GradientCircle className={'lg:right-0 top-1/2 translate-x-2/3 -translate-y-1/4'}/>
           <Footer />
         </BaseView>
       </BaseView>

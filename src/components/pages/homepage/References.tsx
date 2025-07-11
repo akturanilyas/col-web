@@ -6,6 +6,7 @@ import { Carousel, CarouselApi, CarouselContent, CarouselItem } from '@/componen
 import BaseText from '@/components/base/text/BaseText';
 import BaseView from '@/components/base/view/BaseView';
 import { GradientCircle } from '@/components/gradient-circle/GradientCircle';
+import { Section } from '@/components/section/Section';
 
 export const REFERENCE_ITEMS: Array<ReferenceItemType> = [
   {
@@ -34,7 +35,7 @@ export const References: FC = () => {
   const currentSlide = (api?.selectedScrollSnap() || 0);
 
   return (
-    <BaseView className={'relative w-full gap-5 lg:gap-7'}>
+    <Section id={'references'} className={'relative w-full gap-5 lg:gap-7 flex-col px-0'}>
       <GradientCircle className={'top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-5xl'}/>
       <BaseView className={'self-center'}>
         <BaseText color={'primary'} className={'text-[34px] font-bold'} text={'Referanslar'} />
@@ -59,7 +60,7 @@ export const References: FC = () => {
           />
         ))}
       </BaseView>
-    </BaseView>
+    </Section>
   );
 };
 export type ReferenceItemType = {
@@ -76,7 +77,7 @@ export const ReferenceItem: FC<ReferenceItemProps> = (props) => {
   const { item } = props;
 
   return (
-    <BaseView className={'rounded-xl bg-white/50 p-4'}>
+    <BaseView className={'rounded-xl bg-white/50 p-4 h-full'}>
       <BaseView className={'mb-5'}>
         <img className={'size-20 rounded-full'} src={item.image} alt={item.name} />
       </BaseView>

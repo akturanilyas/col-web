@@ -58,7 +58,7 @@ const items: Array<FeatureItem> = [
 ];
 
 export const FeaturesSection = () => (
-  <Section>
+  <Section id={'features'}>
     <BaseView className={'gap-12 lg:gap-20'}>
       {items.map((item, index) => (
         <FeaturesItem item={item} key={index} index={index} />

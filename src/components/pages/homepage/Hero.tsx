@@ -5,7 +5,7 @@ import BaseView from '@/components/base/view/BaseView';
 import { HomepageMarquee } from '@/components/pages/homepage/Marquee';
 
 export const Hero = () => (
-  <BaseView className={'z-10 max-w-screen items-center self-center'}>
+  <BaseView className={'z-10 mt-10 max-w-screen items-center self-center'}>
     <BaseText
       className={'mb-7 text-center text-3xl font-bold md:text-4xl lg:mb-12 max-w-sm md:max-w-md'}
       color={'primary'}

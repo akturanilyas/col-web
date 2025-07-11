@@ -1,22 +1,17 @@
+'use client';
+
 import Image from 'next/image';
-import Link from 'next/link';
 
 import { Button } from '@/components/base/button/Button';
 import BaseText from '@/components/base/text/BaseText';
 import BaseView from '@/components/base/view/BaseView';
 import { MobileNav } from '@/components/header/mobile-nav';
-
-const NavItems = [
-  { href: 'features', label: 'Özellikler' },
-  { href: 'References', label: 'Referanslar' },
-  {
-    href: 'about-us',
-    label: 'Hakkımızda',
-  },
-];
+import { NavItems } from '@/constants/common.constant';
 
 export const Header = () => {
-  const headerTitleClassname = 'text-sm';
+  const onClick = (ref:string) => {
+
+  };
 
   return (
     <header className={'flex w-full flex-row items-center justify-between px-4 py-4 pb-0 md:px-10'}>
@@ -28,10 +23,10 @@ export const Header = () => {
       </BaseView>
       <BaseView className={'hidden flex-1 md:flex'}>
         <nav className={'flex flex-row justify-center gap-6 opacity-60'}>
-          {NavItems.map((item, index) => (
-            <Link key={item.href} href={''} className={headerTitleClassname}>
+          {NavItems.map((item) => (
+            <Button key={item.href} className={'bg-transparent text-sm font-normal'} onClick={() => onClick(item.href)}>
               <BaseText text={item.label} alt={item.label} />
-            </Link>
+            </Button>
           ))}
         </nav>
       </BaseView>

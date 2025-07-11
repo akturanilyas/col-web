@@ -7,11 +7,13 @@ import BaseText from '@/components/base/text/BaseText';
 import BaseInput from '@/components/base/text-input/BaseInput';
 import BaseView from '@/components/base/view/BaseView';
 import { FacebookBlack, InstagramBlack, LnBlack, XBlack } from '@/components/icons';
+import { Section } from '@/components/section/Section';
+import { NavItems } from '@/constants/common.constant';
 
 export const Footer: FC = () => (
-  <BaseView className={'items-center'}>
-    <BaseView className={'mb-20 items-center'}>
-      <BaseText color={'primary'} className={'mb-5 text-[34px] font-bold'} text={'Hafifliğe adım at'} />
+  <Section id={'about-us'} className={'items-center gap-10 flex-col'}>
+    <BaseView className={'items-center gap-5'}>
+      <BaseText color={'primary'} className={'text-[22px] md:text-[34px] font-bold'} text={'Hafifliğe adım at'} />
       <BaseInput
         label={'Eposta adresin'}
         suffix={
@@ -22,29 +24,25 @@ export const Footer: FC = () => (
       />
     </BaseView>
 
-    <BaseView className={'flex-row items-center gap-7 opacity-60 mb-28'}>
-      <XBlack className={'size-6'} />
-      <FacebookBlack className={'size-7'} />
+    <BaseView className={'flex-row items-center gap-7 opacity-60'}>
+      <XBlack className={'size-8'} />
+      <FacebookBlack className={'size-8'} />
       <InstagramBlack className={'size-8'} />
       <LnBlack className={'size-8'} />
     </BaseView>
 
-    <BaseView className={'mb-28'}>
+    <BaseView className={''}>
       <nav className={'flex flex-row justify-center gap-6 opacity-60'}>
-        <Link href={''} className={'text-sm'}>
-          <BaseText className={'text-sm text-black'}>Özellikler</BaseText>
-        </Link>
-        <Link href={''} className={'text-sm'}>
-          <BaseText className={'text-sm text-black'}>Referanslar</BaseText>
-        </Link>
-        <Link href={''} className={'text-sm'}>
-          <BaseText className={'text-sm text-black'}>Hakkımızda</BaseText>
-        </Link>
+        {NavItems.map((item) => (
+          <Link key={item.href} href={item.href} className={'text-sm'}>
+            <BaseText className={'text-sm text-black'} text={item.label}/>
+          </Link>
+        ))}
       </nav>
     </BaseView>
 
-    <BaseView >
+    <BaseView>
       <Image src={'/compi.png'} alt={'compi.png'} width={115} height={26} />
     </BaseView>
-  </BaseView>
+  </Section>
 );
