@@ -1,18 +1,21 @@
+import { FC, PropsWithChildren } from 'react';
+
 import { Button } from '@/components/base/button/Button';
 import BaseText from '@/components/base/text/BaseText';
 import BaseInput from '@/components/base/text-input/BaseInput';
 import BaseView from '@/components/base/view/BaseView';
-import { HomepageMarquee } from '@/components/pages/homepage/Marquee';
+import { GradientCircle } from '@/components/gradient-circle/GradientCircle';
+import { cn } from '@/lib/utils';
 
 export const Hero = () => (
-  <BaseView className={'z-10 mt-10 max-w-screen items-center self-center'}>
+  <BaseView className={'relative z-10 mt-10 max-w-screen items-center self-center'}>
     <BaseText
       className={'mb-7 max-w-sm text-center text-3xl font-bold md:max-w-md md:text-4xl lg:mb-12'}
       color={'primary'}
       text={'Sigortacılık daha kolay, daha hızlı, daha hafif'}
     />
 
-    <BaseView className={'mb-8 w-full max-w-sm px-4'}>
+    <BaseView className={'relative mb-8 w-full sm:max-w-md lg:max-w-sm items-center px-4'}>
       <BaseInput
         className={'w-full'}
         label={'Eposta adresin'}
@@ -23,14 +26,18 @@ export const Hero = () => (
         }
       />
     </BaseView>
+    <img
+      src={'/screens/mobile-web.png'}
+      alt={'mobile-and-web'}
+      className={'z-20 mb-10 px-4 md:max-w-[720px]'}
+    />
+    <GradientCircle className={'left-0 -translate-x-2/3 translate-y-1/4 md:top-1/6 md:-translate-x-1/2'} />
+    <GradientCircle className={'top-0 right-0 translate-x-2/3 md:translate-x-1/2'} />
+  </BaseView>
+);
 
-    <BaseView className={'items-center px-4'}>
-      <img
-        src={'/screens/mobile-web.png'}
-        alt={'mobile-and-web'}
-        className={'mb-10 w-11/12 md:max-w-2/3 lg:mb-20 lg:max-w-[720px]'}
-      />
-    </BaseView>
-    <HomepageMarquee />
+export const Circle: FC<PropsWithChildren<{ className: string }>> = ({ className, children }) => (
+  <BaseView className={cn('spin-2s border-gradient absolute -z-20 aspect-square h-full', className)}>
+    {children}
   </BaseView>
 );

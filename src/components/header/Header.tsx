@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -10,7 +8,7 @@ import { MobileNav } from '@/components/header/mobile-nav';
 import { NavItems } from '@/constants/common.constant';
 
 export const Header = () => (
-    <header className={'flex w-full flex-row items-center justify-between px-4 py-4 pb-0 md:px-10'}>
+    <header className={'flex w-full flex-row items-center justify-between py-2 p-4 md:py-4 md:px-10 sticky top-0 bg-white/90 z-50'}>
       <BaseView className={'flex-1 md:hidden'}>
         <MobileNav items={NavItems} />
       </BaseView>

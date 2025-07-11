@@ -15,7 +15,7 @@ export const HomepageMarquee = () => {
   );
 
   return (
-    <BaseView className={'max-w-screen items-center gap-9 overflow-clip'}>
+    <BaseView className={'max-w-screen items-center gap-5 md:gap-9 overflow-clip z-10'}>
       <BaseText
         color={'secondary'}
         className={'text-base'}

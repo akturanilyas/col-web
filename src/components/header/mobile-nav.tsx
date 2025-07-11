@@ -1,7 +1,6 @@
 'use client';
 
 import Link, { LinkProps } from 'next/link';
-import { useRouter } from 'next/navigation';
 import { ReactNode, useState } from 'react';
 
 import { Button } from '@/components/base/button/Button';
@@ -50,7 +49,7 @@ export function MobileNav({ items, className }: { items: { href: string; label: 
       </PopoverTrigger>
       <PopoverContent
         className={
-          'bg-background/90 no-scrollbar h-(--radix-popper-available-height) w-(--radix-popper-available-width) overflow-y-auto rounded-none border-none p-0 shadow-none backdrop-blur duration-100'
+          'bg-background/90 no-scrollbar z-20 h-(--radix-popper-available-height) w-(--radix-popper-available-width) overflow-y-auto rounded-none border-none p-0 shadow-none backdrop-blur duration-100'
         }
         align={'start'}
         side={'bottom'}
@@ -84,15 +83,15 @@ function MobileLink({
   children: ReactNode;
   className?: string;
 }) {
-  const router = useRouter();
-
   return (
     <Link
       href={href}
       onClick={() => {
-        wim;
+        if (onOpenChange) {
+          onOpenChange(false);
+        }
       }}
-      className={cn('text-[22px] font-normal text-secondary', className)}
+      className={cn('text-secondary text-[22px] font-normal', className)}
       {...props}
     >
       {children}
