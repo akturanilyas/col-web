@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { Button } from '@/components/base/button/Button';
 import BaseText from '@/components/base/text/BaseText';
@@ -8,12 +9,7 @@ import BaseView from '@/components/base/view/BaseView';
 import { MobileNav } from '@/components/header/mobile-nav';
 import { NavItems } from '@/constants/common.constant';
 
-export const Header = () => {
-  const onClick = (ref:string) => {
-
-  };
-
-  return (
+export const Header = () => (
     <header className={'flex w-full flex-row items-center justify-between px-4 py-4 pb-0 md:px-10'}>
       <BaseView className={'flex-1 md:hidden'}>
         <MobileNav items={NavItems} />
@@ -24,9 +20,9 @@ export const Header = () => {
       <BaseView className={'hidden flex-1 md:flex'}>
         <nav className={'flex flex-row justify-center gap-6 opacity-60'}>
           {NavItems.map((item) => (
-            <Button key={item.href} className={'bg-transparent text-sm font-normal'} onClick={() => onClick(item.href)}>
+            <Link key={item.href} href={item.href} className={'text-sm text-secondary'}>
               <BaseText text={item.label} alt={item.label} />
-            </Button>
+            </Link>
           ))}
         </nav>
       </BaseView>
@@ -35,4 +31,3 @@ export const Header = () => {
       </BaseView>
     </header>
   );
-};

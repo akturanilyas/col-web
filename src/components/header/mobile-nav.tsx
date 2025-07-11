@@ -90,8 +90,7 @@ function MobileLink({
     <Link
       href={href}
       onClick={() => {
-        router.push(href.toString());
-        onOpenChange?.(false);
+        wim;
       }}
       className={cn('text-[22px] font-normal text-secondary', className)}
       {...props}

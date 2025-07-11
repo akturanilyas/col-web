@@ -12,7 +12,7 @@ import { NavItems } from '@/constants/common.constant';
 
 export const Footer: FC = () => (
   <Section id={'about-us'} className={'items-center gap-10 flex-col'}>
-    <BaseView className={'items-center gap-5'}>
+    <BaseView className={'items-center gap-5 w-full md:w-auto'}>
       <BaseText color={'primary'} className={'text-[22px] md:text-[34px] font-bold'} text={'Hafifliğe adım at'} />
       <BaseInput
         label={'Eposta adresin'}
@@ -31,7 +31,7 @@ export const Footer: FC = () => (
       <LnBlack className={'size-8'} />
     </BaseView>
 
-    <BaseView className={''}>
+    <BaseView >
       <nav className={'flex flex-row justify-center gap-6 opacity-60'}>
         {NavItems.map((item) => (
           <Link key={item.href} href={item.href} className={'text-sm'}>

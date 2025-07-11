@@ -208,6 +208,7 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
   }
 }
 
@@ -215,7 +216,6 @@
   line-height: normal;
 }
 
-
 section {
-  scroll-margin-top: 60px; /* Header yüksekliği */
+  scroll-margin-top: 60px;
 }

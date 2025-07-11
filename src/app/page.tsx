@@ -8,8 +8,8 @@ import { References } from '@/components/pages/homepage/References';
 
 export default function Home() {
   return (
-    <BaseView className={'relative pt-8 items-center gap-10 md:gap-16 overflow-hidden'}>
-      <BaseView className={'relative items-center overflow-auto md:static'}>
+    <BaseView className={'relative pt-8 items-center gap-10 md:gap-16 max-w-screen overflow-clip'}>
+      <BaseView className={'relative items-center md:static'}>
         <Hero />
       </BaseView>
       <BaseView className={'max-w-7xl lg:px-20'}>
@@ -27,8 +27,8 @@ export default function Home() {
       </BaseView>
 
       <BaseView className={'relative items-center'}>
-        <BaseView className={'mb-20 max-w-7xl px-20'}>
-          <GradientCircle className={'lg:right-0 top-1/2 translate-x-2/3 -translate-y-1/4'}/>
+        <BaseView className={'mb-10 md:mb-20 max-w-7xl lg:px-20'}>
+          <GradientCircle className={'right-0 top-1/2 translate-x-2/3 -translate-y-1/4'}/>
           <Footer />
         </BaseView>
       </BaseView>
