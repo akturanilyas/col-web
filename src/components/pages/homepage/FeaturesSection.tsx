@@ -88,7 +88,7 @@ export const FeaturesItem: FC<FeatureItemProps> = (props) => {
         </BaseView>
 
         <BaseView className={'w-2/3'}>
-          <Image alt={item.header.text} src={item.imgUrl} width={500} height={500}/>
+          <Image alt={item.header.text} src={item.imgUrl} className={'flex-1 w-full'} width={500} height={500}/>
         </BaseView>
       </BaseView>
     </Section>
