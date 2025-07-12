@@ -139,7 +139,7 @@
   }
 
   .animate-bounce-2 {
-    animation: bounce2 5s infinite;
+    animation: bounce2 10s infinite;
   }
 
   .animate-marquee {
@@ -149,9 +149,8 @@
   .bg-radial-gradient {
     background: radial-gradient(
       50% 50% at 50% 50%,
-      rgba(43, 160, 255, 0.4) 0%,
-      rgba(43, 160, 255, 0.3) 30%,
-      rgba(43, 160, 255, 0.2) 60%,
+      rgba(43, 160, 255, 0.3) 0%,
+      rgba(43, 160, 255, 0.2) 50%,
       rgba(255, 255, 255, 0.1) 100%
     );
   }

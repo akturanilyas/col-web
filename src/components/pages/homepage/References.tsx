@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 
 import { Carousel, CarouselApi, CarouselContent, CarouselItem } from '@/components/base/carousel/Carousel';
 import BaseText from '@/components/base/text/BaseText';
@@ -32,13 +32,22 @@ export const REFERENCE_ITEMS: Array<ReferenceItemType> = [
 export const References: FC = () => {
   const [api, setApi] = useState<CarouselApi>();
 
-  const currentSlide = (api?.selectedScrollSnap() || 0);
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+    api.on('select', () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
 
   return (
     <Section id={'references'} className={'relative w-full gap-5 lg:gap-7 flex-col px-0'}>
       <GradientCircle className={'top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-5xl'}/>
       <BaseView className={'self-center'}>
-        <BaseText color={'primary'} className={'text-[34px] font-bold'} text={'Referanslar'} />
+        <BaseText color={'primary'} className={'text-[22px] lg:text-[34px] font-bold'} text={'Referanslar'} />
       </BaseView>
       <Carousel className={'w-full'} setApi={setApi}>
         <CarouselContent className={'-ml-4'}>
@@ -54,7 +63,7 @@ export const References: FC = () => {
           <BaseView
             key={index}
             className={`rounded-full transition-all duration-300 ${
-              index === currentSlide ? 'h-3 w-8 bg-primary' : 'h-3 w-3 bg-primary hover:bg-white/70'
+              index === current ? 'h-3 w-8 bg-primary' : 'h-3 w-3 bg-primary hover:bg-white/70'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
