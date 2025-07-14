@@ -107,8 +107,10 @@ export const FeaturesItem: FC<FeatureItemProps> = (props) => {
           alt={item.header.text}
           src={item.imgUrl}
           className={'w-full flex-1 object-contain lg:h-[520px]'}
-          width={500}
-          height={500}
+          width={0}
+          loading={'lazy'}
+          height={0}
+          sizes={'100vw'}
         />
       </BaseView>
 

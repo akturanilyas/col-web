@@ -13,7 +13,7 @@ export const Header = () => (
         <MobileNav items={NavItems} />
       </BaseView>
       <BaseView className={'flex-1 items-center md:items-start'}>
-        <Image src={'/compi.png'} alt={'compi.png'} width={115} height={26} />
+        <Image src={'/compi.png'} alt={'compi.png'} width={115} height={26} sizes={'100vw'} />
       </BaseView>
       <BaseView className={'hidden flex-1 md:flex'}>
         <nav className={'flex flex-row justify-center gap-6 opacity-60'}>
