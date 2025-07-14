@@ -87,7 +87,7 @@ export default function Home() {
         <HomepageMarquee />
 
       </BaseView>
-      <BaseView className={'max-w-7xl lg:px-20'}>
+      <BaseView className={'max-w-7xl md:max-w-xl lg:max-w-7xl  lg:px-20'}>
         <FeaturesSection />
       </BaseView>
       <BaseView className={'w-full max-w-7xl px-4 lg:px-20'}>
