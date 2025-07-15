@@ -1,9 +1,8 @@
 'use client';
 
-import Link, { LinkProps } from 'next/link';
 import { ReactNode, useState } from 'react';
 
-import { Button } from '@/components/base/button/Button';
+import { Button, ButtonProps } from '@/components/base/button/Button';
 import BaseView from '@/components/base/view/BaseView';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { cn } from '@/lib/utils';
@@ -78,23 +77,27 @@ function MobileLink({
   className,
   children,
   ...props
-}: LinkProps & {
+}: ButtonProps & {
   onOpenChange?: (open: boolean) => void;
   children: ReactNode;
   className?: string;
+  href: string;
 }) {
   return (
-    <Link
-      href={href}
+    <Button
       onClick={() => {
         if (onOpenChange) {
           onOpenChange(false);
         }
+
+        setTimeout(() => {
+          document.querySelector(href)?.scrollIntoView();
+        }, 200);
       }}
-      className={cn('text-secondary text-[22px] font-normal', className)}
+      className={cn('text-secondary text-[22px] font-normal bg-transparent w-min px-0', className)}
       {...props}
     >
       {children}
-    </Link>
+    </Button>
   );
 }
