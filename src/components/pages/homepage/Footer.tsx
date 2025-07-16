@@ -1,11 +1,11 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { FC } from 'react';
 
 import { Button } from '@/components/base/button/Button';
 import BaseText from '@/components/base/text/BaseText';
 import BaseInput from '@/components/base/text-input/BaseInput';
 import BaseView from '@/components/base/view/BaseView';
+import { HeaderLink } from '@/components/header/HeaderLink';
 import { FacebookBlack, InstagramBlack, LnBlack, XBlack } from '@/components/icons';
 import { Section } from '@/components/section/Section';
 import { NavItems } from '@/constants/common.constant';
@@ -34,9 +34,7 @@ export const Footer: FC = () => (
     <BaseView >
       <nav className={'flex flex-row justify-center gap-6 opacity-60'}>
         {NavItems.map((item) => (
-          <Link key={item.href} href={item.href} className={'text-sm'}>
-            <BaseText className={'text-sm text-black'} text={item.label}/>
-          </Link>
+          <HeaderLink key={item.href} item={item}/>
         ))}
       </nav>
     </BaseView>

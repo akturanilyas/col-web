@@ -14,7 +14,7 @@ export const MobileLink: FC<MobileNavLinkProps> = ({ href, onOpenChange, classNa
       }
 
       setTimeout(() => {
-        document.querySelector(href)?.scrollIntoView();
+          document.querySelector(href)?.scrollIntoView({ inline: 'start', behavior: 'smooth' });
       }, 200);
     }}
     className={cn('text-secondary w-min bg-transparent px-0 text-[22px] font-normal', className)}
