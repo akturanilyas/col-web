@@ -87,10 +87,10 @@ export default function Home() {
         <HomepageMarquee />
 
       </BaseView>
-      <BaseView className={'max-w-7xl md:max-w-xl lg:max-w-7xl  lg:px-20'}>
+      <BaseView className={'max-w-7xl md:max-w-xl lg:max-w-7xl lg:px-4'}>
         <FeaturesSection />
       </BaseView>
-      <BaseView className={'w-full max-w-7xl px-4 lg:px-20'}>
+      <BaseView className={'w-full max-w-7xl px-4'}>
         <References />
       </BaseView>
 
@@ -102,7 +102,7 @@ export default function Home() {
       </BaseView>
 
       <BaseView className={'relative items-center overflow-y-clip'}>
-        <BaseView className={'mb-10 max-w-7xl md:mb-20 lg:px-20'}>
+        <BaseView className={'mb-10 max-w-7xl md:mb-20 lg:px-4'}>
           <GradientCircle className={'top-1/2 right-0 translate-x-2/3 -translate-y-1/4'} />
           <Footer />
         </BaseView>

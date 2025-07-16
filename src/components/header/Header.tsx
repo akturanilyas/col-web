@@ -1,10 +1,9 @@
 import Image from 'next/image';
-import Link from 'next/link';
 
 import { Button } from '@/components/base/button/Button';
-import BaseText from '@/components/base/text/BaseText';
 import BaseView from '@/components/base/view/BaseView';
-import { MobileNav } from '@/components/header/mobile-nav';
+import { HeaderLink } from '@/components/header/HeaderLink';
+import { MobileNav } from '@/components/header/MobileNav';
 import { NavItems } from '@/constants/common.constant';
 
 export const Header = () => (
@@ -18,9 +17,7 @@ export const Header = () => (
       <BaseView className={'hidden flex-1 md:flex'}>
         <nav className={'flex flex-row justify-center gap-6 opacity-60'}>
           {NavItems.map((item) => (
-            <Link key={item.href} href={item.href} className={'text-sm text-secondary hover:text-primary'}>
-              <BaseText text={item.label} alt={item.label} />
-            </Link>
+           <HeaderLink key={item.href} item={item}/>
           ))}
         </nav>
       </BaseView>
