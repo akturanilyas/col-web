@@ -137,7 +137,7 @@
   }
 
   .animate-bounce-2 {
-    animation: bounce2 10s infinite;
+    animation: bounce2 5s infinite;
   }
 
   .animate-marquee {

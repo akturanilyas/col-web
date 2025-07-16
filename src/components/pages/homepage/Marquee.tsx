@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { useMemo } from 'react';
 import Marquee from 'react-fast-marquee';
 
@@ -10,16 +9,14 @@ export const HomepageMarquee = () => {
   const providerImages = useMemo(
     () =>
       Object.values(Providers).map((key) => (
-        <Image
-          src={`/providers/black/${key}.png`}
-          key={key}
-          loading={'lazy'}
-          width={'0'}
-          alt={key}
-          height={'0'}
-          sizes={'100vw'}
-          className={'w-full px-4 h-5 md:h-8 min-h-5 min-w-1'}
-        />
+        <BaseView key={key} className={'mx-8'} >
+          <img
+            className={'h-auto w-full'}
+            src={`/providers/black/${key}.png`}
+            loading={'lazy'}
+            alt={key}
+          />
+        </BaseView>
       )),
     [],
   );
@@ -32,7 +29,7 @@ export const HomepageMarquee = () => {
         text={'En prestijli sigorta şirketleri Compi’ye güveniyor'}
       />
       <BaseView className={'min-h-[32px]'}>
-        <Marquee autoFill className={'overflow-clip opacity-60'} pauseOnHover>
+        <Marquee autoFill className={'overflow-clip opacity-60'} pauseOnHover >
           {providerImages}
         </Marquee>
       </BaseView>
